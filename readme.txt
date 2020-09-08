@@ -1,0 +1,8 @@
+一个利用sportboot的简单SSM框架的日报管理系统
+1、在服务器安装java1.8
+2、在服务器安装MYSQL,推荐版本 8.0.16，用户名：root 密码：password
+3、在MYSQL中创建数据库，库名worklog并创建数据表
+4、将压缩包解压至安装目录
+5、在安装文件目录下执行：Java -jar demo-0.0.1-SNAPSHOT.jar
+6、通过服务器浏览器：localhost：80/login 进入登录页面
+7、其他终端可根据相应IP进入界面
