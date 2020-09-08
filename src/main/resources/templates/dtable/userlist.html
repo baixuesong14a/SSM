@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>Content</title>
+    <link rel="stylesheet" type="text/css" href="/css/list.css" />
+</head>
+<body>
+<div class="main">
+    <div class="mainin">
+        <h1>今日日志</h1>
+        <div class="table">
+            <table border="2">
+                <thead>
+                <tr class = "thr">
+                    <!--<td>id</td>  -->
+                    <td th:width="125">工作开展</td>
+                    <td th:width="75">序号</td>
+                    <td th:width="90">工作类型</td>
+                    <td th:width="270">主要内容</td>
+                    <td th:width="100">基本依据</td>
+                    <td th:width="100">时间安排</td>
+                    <td th:width="100">负责人员</td>
+                    <td th:width="100"> 体现方式</td>
+                    <td th:width="100">备注</td>
+                    <td th:width="75">管理</td>
+                </tr>
+                <!--/*@thymesVar id="contents_today" type="java.util.List<com.cedar.worklog.entity.DayTableWork>"*/-->
+                <tr th:each="Dtablework:${contents_today}">
+                    <!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+                    <!--<td th:text="${Dtablework.getDt_id()}"></td>-->
+                    <!-- <td th:text="${Dtablework.getD_tab()}"></td>  -->
+                    <span th:if = "${Dtablework.getD_num()} == 1">
+            <td th:rowspan = "${contents_today.size()}"}>今日工作内容</td>
+        </span>
+
+                    <td th:text="${Dtablework.getD_num()}"></td>
+                    <td th:if = "${Dtablework.getD_type()} == 0" th:text="上级通知"></td>
+                    <td th:if = "${Dtablework.getD_type()} == 1" th:text="本级展开"></td>
+                    <!--td th:text="${Dtablework.getD_type()}"></td-->
+                    <td th:text="${Dtablework.getD_content()}"></td>
+                    <td th:text="${Dtablework.getD_basis()}"></td>
+                    <td th:text="${Dtablework.getD_time()}"></td>
+                    <td th:text="${Dtablework.getD_principal()}"></td>
+                    <td th:text="${Dtablework.getD_way()}"></td>
+                    <td th:text="${Dtablework.getD_remarks()}"></td>
+                    <!--
+                    <td th:text="${Dtablework.getC_time()}"></td>
+                    <td th:text="${Dtablework.getUser_id()}"></td>
+                    -->
+                    <td><a th:href="@{'/dtable/delete/'+${Dtablework.getDt_id()}}">删除</a></td>
+                </tr>
+                </thead>
+            </table>
+
+            <br>
+            <table border="2">
+                <thead>
+                <tr class = "thr">
+                    <!--<td>id</td>  -->
+                    <td th:width="125">工作开展</td>
+                    <td th:width="75">序号</td>
+                    <td th:width="90">工作类型</td>
+                    <td th:width="270">主要内容</td>
+                    <td th:width="100">基本依据</td>
+                    <td th:width="100">时间安排</td>
+                    <td th:width="100">负责人员</td>
+                    <td th:width="100"> 体现方式</td>
+                    <td th:width="100">备注</td>
+                    <td th:width="75">管理</td>
+                </tr>
+                <!--/*@thymesVar id="contents_tomorrow" type="java.util.List<com.cedar.worklog.entity.DayTableWork>"*/-->
+                <tr th:each="Dtablework:${contents_tomorrow}">
+                    <!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+                    <!--<td th:text="${Dtablework.getDt_id()}"></td>-->
+                    <span th:if = "${Dtablework.getD_num()} == 1">
+                    <td th:rowspan = "${contents_tomorrow.size()}"}>明日工作计划</td>
+                    </span>
+                    <!-- <td th:text="${Dtablework.getD_tab()}"></td>  -->
+                    <td th:text="${Dtablework.getD_num()}"></td>
+                    <td th:if = "${Dtablework.getD_type()} == 0" th:text="上级通知"></td>
+                    <td th:if = "${Dtablework.getD_type()} == 1" th:text="本级展开"></td>
+                    <td th:text="${Dtablework.getD_content()}"></td>
+                    <td th:text="${Dtablework.getD_basis()}"></td>
+                    <td th:text="${Dtablework.getD_time()}"></td>
+                    <td th:text="${Dtablework.getD_principal()}"></td>
+                    <td th:text="${Dtablework.getD_way()}"></td>
+                    <td th:text="${Dtablework.getD_remarks()}"></td>
+                    <!--
+                    <td th:text="${Dtablework.getC_time()}"></td>
+                    <td th:text="${Dtablework.getUser_id()}"></td>
+                    -->
+                    <td><a th:href="@{'/dtable/delete/'+${Dtablework.getDt_id()}}">删除</a></td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+
+    </div>
+
+    <div class="bon">
+        <!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+        <a href="/dtable/dtableform" th:href="@{'/dtable/dtableform/' + ${user.userid}}" class="fromtijiao">
+            新建数据
+        </a>
+
+        <a href="/dtable/dtableform" th:href="@{'/dtable/excel/'+${user.userid}}" class="fromtijiao">
+            生成日报
+        </a>
+
+        <a href="/dtable/dtableform" th:href="@{'/dtable/getweek/'+${user.userid}}" class="fromtijiao">
+            生成周报
+        </a>
+
+        <a href="/dtable/dtableform" th:href="@{'/download/list/'+${user.userid}}" class="fromtijiao">
+            查看日报
+        </a>
+    </div>
+</div>
+
+
+</body>
+</html>

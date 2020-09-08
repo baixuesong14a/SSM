@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>删除失败</title>
+</head>
+删除失败
+<body>
+<!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+<a th:href="@{'/dtable/list/'+${user.userid}}">确定</a>
+
+</body>
+</html>

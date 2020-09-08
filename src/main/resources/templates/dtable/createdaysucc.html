@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>创建成功</title>
+</head>
+创建成功
+
+<!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+<table >
+    <thead>
+    <tr>
+        <!--<td>id</td> -->
+        <td>日报</td>
+        <td>操作</td>
+    </tr>
+    <!--/*@thymesVar id="list" type="java.util.ArrayList"*/-->
+    <tr th:each="filename :${list}">
+        <td th:text="${filename}"></td>
+        <td><a th:href="@{'/download/'+${filename}}">下载</a></td>
+    </tr>
+    </thead>
+</table>
+<a th:href="@{'/dtable/list/'+${user.userid}}">返回个人页</a>
+</body>
+</html>

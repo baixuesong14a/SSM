@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout= "http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <title>注册用户</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+<div class="main">
+    <div class="mainin">
+        <!--h1><img src="/images/ht_name.png"></h1-->
+
+        <div class="mainin1">
+            <ul>
+                <!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+                <form action="#" th:action="@{/user/add}" method="post" th:object="${user}">
+                    <input type="hidden" name="userid" th:value="*{userid}">
+                    <li><span>用户名：</span>
+                        <input type="text" name="username" th:value="*{username}"  class="SearchKeyword">
+                    </li>
+                    <li><span>密码：</span>
+                        <input type="text" name="userpassword" th:value="*{userpassword}" class="SearchKeyword2">
+                    </li>
+                    <li><span>权限：</span>
+                    <input type="text" name="role" th:value="*{role}" class="SearchKeyword">
+                    <li><button class="tijiao">注册</button></li>
+                </form>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>

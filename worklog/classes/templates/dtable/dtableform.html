@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout= "http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+</head>
+<body>
+
+<!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+<div class="user">
+    <p><strong>当前用户</strong>
+        <span th:text="${user.username}"></span></p>
+</div>
+<div class="main">
+    <div class="mainin">
+        <h1>今日情况创建</h1>
+        <!--/*@thymesVar id="dtablework" type="com.cedar.worklog.entity.DayTableWork"*/-->
+        <form action="#" th:action="@{/dtable/add}" method="post" th:object="${dtablework}" class="dtwform">
+            <span>今日开展&emsp;</span>
+            <select name="d_tab">
+                <option th:value="0">今日工作内容</option>
+                <option th:value="1">明日工作安排</option>
+            </select>
+            <br/>
+
+            <span>工作类型&emsp;</span>
+            <select name="d_type">
+                <option th:value="0">上级通知</option>
+                <option th:value="1">本级展开</option>
+            </select>
+            <br/>
+
+            <span>主要内容&emsp;</span>
+            <textarea type="text" name="d_content" th:value="*{d_content}"></textarea>
+            <br/>
+
+            <span>基本依据&emsp;</span>
+            <input type="text" name="d_basis" th:value="*{d_basis}">
+            <br/>
+
+            <span>时间安排&emsp;</span>
+            <input type="text" name="d_time" th:value="*{d_time}">
+            <br/>
+
+            <span>负责人&emsp;&emsp;</span>
+            <input type="text" name="d_principal" th:value="*{d_principal}">
+            <br/>
+
+            <span>体现方式&emsp;</span>
+            <input type="text" name="d_way" th:value="*{d_way}">
+            <br/>
+
+            <span>备注&emsp;&emsp;&emsp;</span>
+            <input type="text" name="d_remarks" th:value="*{d_remarks}">
+            <br/>
+
+            <input type="hidden" name="user_id" th:value="${user.userid}">
+            <br/>
+
+            <button class="fromtijiao">提交</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

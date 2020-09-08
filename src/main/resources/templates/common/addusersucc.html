@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>成功创建用户</title>
+</head>
+创建成功
+
+<body>
+<!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+<form action="@{/user/add}" th:action="@{/user/add}" method="post" th:object="${user}">
+    <input type="hidden" name="userid" th:value="*{userid}">
+    名字<br/>
+    <input type="text" name="username" th:value="*{username}">
+    <br/>
+    <input type="text" name="userpassword" th:value="*{userpassword}">
+    <br/>
+    <input type="text" name="role" th:value="*{role}">
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>

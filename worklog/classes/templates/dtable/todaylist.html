@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <title>Content</title>
+</head>
+<body>
+<div>
+    <a href="/dtable/dtableform" th:href="@{/dtable/dtableform}">
+        新建数据
+    </a>
+</div>
+<table >
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>工作开展</td>
+        <td>序号</td>
+        <td>工作类型</td>
+        <td>主要内容</td>
+        <td>基本依据</td>
+        <td>时间安排</td>
+        <td>负责人员</td>
+        <td>体现方式</td>
+        <td>备注</td>
+        <td>管理</td>
+    </tr>
+    <!--/*@thymesVar id="contents" type="java.util.List<com.cedar.worklog.entity.DayTableWork>"*/-->
+    <tr th:each="Dtablework:${contents}">
+        <!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+        <td th:text="${Dtablework.getDt_id()}"></td>
+        <td th:text="${Dtablework.getD_tab()}"></td>
+        <td th:text="${Dtablework.getD_num()}"></td>
+        <td th:text="${Dtablework.getD_type()}"></td>
+        <td th:text="${Dtablework.getD_content()}"></td>
+        <td th:text="${Dtablework.getD_basis()}"></td>
+        <td th:text="${Dtablework.getD_time()}"></td>
+        <td th:text="${Dtablework.getD_principal()}"></td>
+        <td th:text="${Dtablework.getD_way()}"></td>
+        <td th:text="${Dtablework.getD_remarks()}"></td>
+        <td th:text="${Dtablework.getC_time()}"></td>
+        <td th:text="${Dtablework.getUser_id()}"></td>
+        <td><a th:href="@{'/dtable/delete/'+${Dtablework.getDt_id()}}">删除</a></td>
+    </tr>
+    </thead>
+</table>
+--------------------------------------------------------------------------
+<table >
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>工作开展</td>
+        <td>序号</td>
+        <td>工作类型</td>
+        <td>主要内容</td>
+        <td>基本依据</td>
+        <td>时间安排</td>
+        <td>负责人员</td>
+        <td>体现方式</td>
+        <td>备注</td>
+        <td>管理</td>
+    </tr>
+    <!--/*@thymesVar id="contents_today" type="java.util.List<com.cedar.worklog.entity.DayTableWork>"*/-->
+    <tr th:each="Dtablework:${contents_today}">
+        <!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+        <td th:text="${Dtablework.getDt_id()}"></td>
+        <td th:text="${Dtablework.getD_tab()}"></td>
+        <td th:text="${Dtablework.getD_num()}"></td>
+        <td th:text="${Dtablework.getD_type()}"></td>
+        <td th:text="${Dtablework.getD_content()}"></td>
+        <td th:text="${Dtablework.getD_basis()}"></td>
+        <td th:text="${Dtablework.getD_time()}"></td>
+        <td th:text="${Dtablework.getD_principal()}"></td>
+        <td th:text="${Dtablework.getD_way()}"></td>
+        <td th:text="${Dtablework.getD_remarks()}"></td>
+        <td th:text="${Dtablework.getC_time()}"></td>
+        <td th:text="${Dtablework.getUser_id()}"></td>
+        <td><a th:href="@{'/dtable/delete/'+${Dtablework.getDt_id()}}">删除</a></td>
+    </tr>
+    </thead>
+</table>
+
+------------------------------------------------------
+<table >
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>工作开展</td>
+        <td>序号</td>
+        <td>工作类型</td>
+        <td>主要内容</td>
+        <td>基本依据</td>
+        <td>时间安排</td>
+        <td>负责人员</td>
+        <td>体现方式</td>
+        <td>备注</td>
+        <td>管理</td>
+    </tr>
+    <!--/*@thymesVar id="contents_tomorrow" type="java.util.List<com.cedar.worklog.entity.DayTableWork>"*/-->
+    <tr th:each="Dtablework:${contents_tomorrow}">
+        <!--/*@thymesVar id="user" type="com.cedar.worklog.entity.User"*/-->
+        <td th:text="${Dtablework.getDt_id()}"></td>
+        <td th:text="${Dtablework.getD_tab()}"></td>
+        <td th:text="${Dtablework.getD_num()}"></td>
+        <td th:text="${Dtablework.getD_type()}"></td>
+        <td th:text="${Dtablework.getD_content()}"></td>
+        <td th:text="${Dtablework.getD_basis()}"></td>
+        <td th:text="${Dtablework.getD_time()}"></td>
+        <td th:text="${Dtablework.getD_principal()}"></td>
+        <td th:text="${Dtablework.getD_way()}"></td>
+        <td th:text="${Dtablework.getD_remarks()}"></td>
+        <td th:text="${Dtablework.getC_time()}"></td>
+        <td th:text="${Dtablework.getUser_id()}"></td>
+        <td><a th:href="@{'/dtable/delete/'+${Dtablework.getDt_id()}}">删除</a></td>
+    </tr>
+    </thead>
+</table>
+</body>
+</html>
