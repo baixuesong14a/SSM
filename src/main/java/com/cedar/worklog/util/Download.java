@@ -17,6 +17,7 @@ public class Download {
     public static List<String> GetExcelLise(String name,String tab){
         List<String> namelist = new ArrayList();
         String basePath=System.getProperty("user.dir") + "\\excel";
+        //System.out.println(basePath);
         String[] list=new File(basePath).list();
         for(String excelname : list){
             if(excelname.contains(name) && excelname.contains(tab)){

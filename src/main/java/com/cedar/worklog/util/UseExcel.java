@@ -60,7 +60,6 @@ public class UseExcel {
         XSSFCellStyle kstyle = xssfWorkbook.createCellStyle();
         setStyle(kstyle,datafont);
 
-
         //创建cell并设置cell的值
         row.createCell(0).setCellValue("工作开展");
         row.createCell(1).setCellValue("序号");

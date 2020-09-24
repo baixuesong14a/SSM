@@ -1,5 +1,7 @@
 package com.cedar.worklog.entity;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class DayTableWork {
     private String d_remarks;
 
     private double dt_id;
-    private Date c_time;
+    private String c_time;
     private int user_id;
 
     public DayTableWork() {
@@ -33,7 +35,7 @@ public class DayTableWork {
         this.d_remarks = remarks;
 
         this.dt_id = 0;         //补全
-        this.c_time = new Date();
+        this.c_time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         this.user_id = 0;
     }
     public int getD_num() {
@@ -108,13 +110,6 @@ public class DayTableWork {
         this.d_tab = d_tab;
     }
 
-    public Date getC_time() {
-        return c_time;
-    }
-
-    public void setC_time(Date c_time) {
-        this.c_time = c_time;
-    }
 
     public double getDt_id() {
         return dt_id;
@@ -132,4 +127,11 @@ public class DayTableWork {
         this.user_id = user_id;
     }
 
+    public String getC_time() {
+        return c_time;
+    }
+
+    public void setC_time(String c_time) {
+        this.c_time = c_time;
+    }
 }

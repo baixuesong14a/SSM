@@ -13,8 +13,12 @@ public interface UserService {
 
     public boolean InsertUser(String name,String password,int role);
 
+    public boolean InsertUserID(int userid,String name,String password,int role);
+
     public User GetUserByName(String name);
 
 
     public boolean DeleteById(int id);
+
+    public int GetUserNum();
 }

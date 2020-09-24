@@ -29,12 +29,8 @@ public class DownloadController {
         try {
             //Resource resource = new ClassPathResource("E:\\Project\\demo\\src\\main\\resources\\excel\\日报：白雪松20200902091709.xlsx");
             String downUrl = System.getProperty("user.dir") + "\\excel\\" + downfile;
-            //System.out.println(downUrl);
-            //downUrl = "excel/日报：白雪松20200902091709.xlsx";
-            //Resource resource = new ClassPathResource(downUrl);
-            //System.out.println(((ClassPathResource) resource).getPath());
-            //File file = resource.getFile();
-            //String filename = resource.getFilename();
+            System.out.println(downUrl);
+
             String filename = System.getProperty("user.dir") + "\\excel\\" + downfile;
             //System.out.println("filename"  + filename);
             File file = new File(filename);

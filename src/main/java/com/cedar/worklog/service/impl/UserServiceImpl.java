@@ -28,11 +28,21 @@ public class UserServiceImpl implements UserService {
         return userdao.InsertUser(name,password,role);
     }
 
+    public boolean InsertUserID(int userid,String name,String password,int role){
+        if(userdao.GetUserByName(name) !=null )
+            return false;
+        return userdao.InsertUserID(userid,name,password,role);
+    }
+
     public boolean DeleteById(int id){
         return userdao.DeleteById(id);
     }
 
     public User GetUserByName(String name){
         return userdao.GetUserByName(name);
+    }
+
+    public int GetUserNum(){
+        return userdao.GetUserNum();
     }
 }

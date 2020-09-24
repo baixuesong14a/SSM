@@ -60,8 +60,10 @@ public class ThymeleafUserController {
 
     @RequestMapping(value="/add",method= RequestMethod.POST)
     public String add(@ModelAttribute User user){
-
-        if(userservice.InsertUser(user.getUsername(),user.getUserpassword(),user.getRole()))
+        //System.out.println(user.toString());
+        //获取当前用户数量
+        System.out.println(userservice.GetUserNum());
+        if(userservice.InsertUserID(userservice.GetUserNum()+ 1,user.getUsername(),user.getUserpassword(),user.getRole()))
             return "/common/addusersucc";
         return "common/adduserfail";
     }

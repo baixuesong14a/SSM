@@ -29,6 +29,15 @@ public class DTableServiceImpl implements DTableService {
     }
 
     @Override
+    public boolean AddDtableID(DayTableWork dtw) {
+        int dt_id = dtabledao.GetNewNum() + 1;
+        dtabledao.addNewNum(dt_id);
+        String c_time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        return dtabledao.InsertDTableID(dtw.getD_tab(),dtw.getD_num(),dtw.getD_type(),dtw.getD_content(),dtw.getD_basis(),dtw.getD_time(),
+                dtw.getD_principal(),dtw.getD_way(),dtw.getD_remarks(),dt_id,c_time, dtw.getUser_id());
+    }
+
+    @Override
     public boolean DelDtable(double id) {
         return dtabledao.DeleteDTableById(id);
     }
@@ -40,9 +49,7 @@ public class DTableServiceImpl implements DTableService {
 
     @Override
     public List<DayTableWork> SelDTableByDay(){
-
         String c_time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
         return dtabledao.SelectDtableByDay(c_time);
     }
 
@@ -50,6 +57,7 @@ public class DTableServiceImpl implements DTableService {
     public List<DayTableWork> SelDTableByDaI(int userid){
 
         String c_time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        //System.out.println(c_time);
         return dtabledao.SelectDtableByDaI(c_time,userid);
     }
 

@@ -9,6 +9,8 @@ public interface DTableService {
 
     public boolean AddDtable(DayTableWork dtw);
 
+    public boolean AddDtableID(DayTableWork dtw);
+
     public boolean DelDtable(double id);
 
     public DayTableWork SelDTableById(double id);

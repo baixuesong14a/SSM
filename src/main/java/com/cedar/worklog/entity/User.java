@@ -38,4 +38,8 @@ public class User {
     public void setRole(int role) {
         this.role = role;
     }
+
+    public String toString(){
+        return "ID：" + userid + "\n用户名" + username + "\n密码：" + userpassword + "\n权限：" + role;
+    }
 }

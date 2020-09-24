@@ -56,7 +56,7 @@ public class DtableController {
         //修改插入序号
 
         //插入数据
-        dtableservice.AddDtable(dtablework);
+        dtableservice.AddDtableID(dtablework);
         //System.out.println(dtablework.getD_tab());
 
         model.addAttribute("user",userservice.GetUserById(userid));

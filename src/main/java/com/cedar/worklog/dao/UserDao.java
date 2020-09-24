@@ -25,7 +25,13 @@ public interface UserDao {
     @Insert("insert into user(username,userpassword,role) values(#{name},#{password},#{role})")
     boolean InsertUser(@Param("name") String name,@Param("password") String password,@Param("role") int role);
 
+    @Insert("insert into user(userid,username,userpassword,role) values(#{userid},#{name},#{password},#{role})")
+    boolean InsertUserID(@Param("userid") int userid,@Param("name") String name,@Param("password") String password,@Param("role") int role);
+
     //通过id删除人员信息
     @Delete("delete from user where id = #{id}")
     boolean DeleteById(@Param("id") int id);
+
+    @Select("select count(*) from user")
+    int GetUserNum();
 }
