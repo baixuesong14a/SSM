@@ -1,0 +1,8 @@
+一个利用sportboot的简单SSM框架的日报管理系统
+1、在服务器安装java1.8
+2、在服务器安装MYSQL,推荐版本 8.0.16，用户名：root 密码：password
+   如采用此配置,需更改DAO层插入方法,以及调用此插入方法的全部接口
+3、在200924根据需求更改为本地SQLite数据库
+   数据库文件放在resources/oyther下
+   部分接口做了更改适配SQLite数据库
+4、resources/oyther下setup.bat文件为启动文件
